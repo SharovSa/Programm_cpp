@@ -7,6 +7,6 @@ struct ValueHolder_struct {
 
 inline void SetValue(SomeLibrary::ValueHolder &valueHolder, int value) {
   ValueHolder_struct *structured_valueHolder;
-  structured_valueHolder = (ValueHolder_struct *) &valueHolder;
+  structured_valueHolder = reinterpret_cast<ValueHolder_struct *>(&valueHolder);
   structured_valueHolder->value_ = value;
 }
