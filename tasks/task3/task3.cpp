@@ -21,6 +21,14 @@ TEST(IterateOver, vector) {
     ASSERT_EQ(ii_3 - ii, 3);
 }
 
+// свой тест декремента
+TEST(IterateOver, decrement) {
+  std::vector<int> v { 0, 1, 2, 3, 4, 5 };
+  for (auto ii = CreateIndexedIterator(v.end() - 1, 5); ii != v.begin(); --ii) {
+    ASSERT_EQ(ii.index(), *ii);
+  }
+}
+
 TEST(IteratorTraits, find) {
     std::vector<int> v { 0, 1, 2, 3, 4, 5 };
     auto ii = CreateIndexedIterator(v.begin());
